@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import Ticket from "@/app/(models)/Ticket";
+
+
 export async function POST(req) {
   console.log("POST RAN");
   try {
@@ -15,13 +17,11 @@ export async function POST(req) {
   }
 }
 
-export async function GET () {
-  try{
+export async function GET() {
+  try {
     const tickets = await Ticket.find();
-    return NextResponse.json({ tickets}, { status: 200 });
-
+    return NextResponse.json({ tickets }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
-
   }
 }
